@@ -1,0 +1,12 @@
+{
+    "https://api.shinyapps.io": {
+        "server_url": "https://api.shinyapps.io",
+        "filename": "/Users/dongchenbin/Desktop/\u684c\u9762 - cc.MacBook Pro/pynthon in R/Pynthon in R/shiny_pynthon",
+        "app_url": "https://lsysocute.shinyapps.io/shinyrobot/",
+        "app_id": 10041718,
+        "app_guid": null,
+        "title": "shinyrobot",
+        "app_mode": "python-shiny",
+        "app_store_version": 1
+    }
+}

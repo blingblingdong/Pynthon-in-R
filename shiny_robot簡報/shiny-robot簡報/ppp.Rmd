@@ -1,0 +1,334 @@
+---
+title: "python對話機器人"
+subtitle: "程式設計概論作品展示"
+author: "董宸賓，楊松翰"
+date: "2023/9/29"
+output:
+  xaringan::moon_reader:
+    self_contained: FALSE
+    lib_dir: libs
+    css: "shiny_python_robot.css"
+    nature:
+      highlightLines: true
+      countIncrementalSlides: false
+      seal: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library('xaringan')
+library('reticulate')
+library("renderthis")
+remotes::install_github('rstudio/pagedown')
+```
+
+class:inverse2,center
+
+## 核心理念與目標
+.text-alignl[
+### 一.讓對話機器人在有限的操作下生動既有趣
+
+###  .b[a]1.加入一些單向互動
+
+###  .b[a]2.模擬真實電腦互動
+
+]
+--
+
+.text-alignl[
+
+### 二.使內容豐富而不流於俗套
+
+### .b[a]1.添加一些近期的時事梗
+
+### .b[a]2.融入真人語氣
+]
+
+---
+
+class:inverse,center
+
+## 架構
+
+.pull-left2[
+### **基本資料**
+
+
+### 數學
+
+
+### 偽互動
+
+
+### 偽爬蟲
+
+]
+
+.pull-right2[
+.text-alignl[
+先用input()輸入個人資料
+```{}
+*userInput1 = input("你的名字是：")
+print("使用者： 我的名字是",userInput1)
+print("機器人：",userInput1,"這個名字真好聽，很高興跟你聊天")
+```
+]
+]
+--
+.pull-right2[
+.text-alignl[
+接著，打印出使用者講的完整句子
+```{}
+userInput1 = input("你的名字是：")
+*print("使用者： 我的名字是",userInput1)
+print("機器人：",userInput1,"這個名字真好聽，很高興跟你聊天")
+```
+]
+]
+
+--
+.pull-right2[
+.text-alignl[
+最後打印出機器人的回答
+```{}
+userInput1 = input("你的名字是：")
+print("使用者： 我的名字是",userInput1)
+*print("機器人：",userInput1,"這個名字真好聽，很高興跟你聊天")
+```
+]
+]
+---
+
+class: center,inverse
+
+## 架構
+
+.pull-left2[
+### 基本資料
+
+
+### **數學**
+
+
+### 偽互動
+
+
+### 偽爬蟲
+
+]
+
+.pull-right2[
+.text-alignl[
+先用input()獲取使用者的年齡
+```{}
+*userInput2 = input("你今年幾歲：")
+doubleAge = int(userInput2)*2
+print("使用者： 我今年",userInput2)
+print("機器人：",userInput2,"騙人！")
+print("機器人：你的歲數的兩倍是",doubleAge,"也太老了吧")
+```
+]
+]
+--
+.pull-right2[
+.text-alignl[
+接著指定一個變數doubleAge，設定為年齡的兩倍
+```{}
+userInput2 = input("你今年幾歲：")
+*doubleAge = int(userInput2)*2
+print("使用者： 我今年",userInput2)
+print("機器人：",userInput2,"騙人！")
+print("機器人：你的歲數的兩倍是",doubleAge,"也太老了吧")
+```
+]
+]
+
+---
+
+class: center,inverse
+
+## 架構
+
+.pull-left2[
+### 基本資料
+
+
+### **數學**
+
+
+### 偽互動
+
+
+### 偽爬蟲
+
+]
+
+.pull-right2[
+.text-alignl[
+最後快快樂樂的print出來
+```{}
+userInput2 = input("你今年幾歲：")
+doubleAge = int(userInput2)*2
+*print("使用者： 我今年",userInput2)
+*print("機器人：",userInput2,"騙人！")
+*print("機器人：你的歲數的兩倍是",doubleAge,"也太老了吧")
+```
+]
+]
+--
+.pull-right2[
+.text-alignl[
+我的數學能力就展現到這裡了^_^
+
+]
+```{r, echo=FALSE, out.width="50%"}
+knitr::include_graphics("libs/sheep3.gif")
+```
+]
+
+---
+
+class: center,inverse
+
+## 架構
+
+.pull-left2[
+### 基本資料
+
+
+### 數學
+
+
+### **偽互動**
+
+
+### 偽爬蟲
+
+]
+
+.pull-right2[
+.text-alignl[
+搭配電腦被入侵的情節，有一個是否拯救的提問
+
+但因為不能用迴圈貨if，這裡的輸入其實沒有效果
+```{}
+print("機器人：偵查到有政治駭客入侵\n救救我\n我\n啊")
+userInput5 = input("按1樂捐1元，按2樂捐2千，按3與對方進行更多對話")
+print("你不會以為按了有用吧")
+```
+]
+]
+--
+.pull-right2[
+.text-alignl[
+一樣這裡輸入什麼也沒差
+
+```{}
+userInput6 = input("你支持年金改革嗎？")
+print("我是不知道啦")
+print("我可不是法律上的人")
+print("才不會告訴你")
+```
+]
+]
+
+
+
+---
+
+class: center,inverse
+
+## 架構
+
+.pull-left2[
+### 基本資料
+
+
+### 數學
+
+
+### 偽互動
+
+
+### **偽爬蟲**
+
+]
+
+.pull-right2[
+.text-alignl[
+如果你知道python爬蟲的強大與快速
+
+說不定你也會掉入這個小小的把戲
+
+首先請用戶輸入他們的ig帳號
+
+並且偽裝讀取的畫面
+```{}
+print("sent your instagram account to me")
+userInput9 = input("你的ig？")
+print("I see")
+print("查看中")
+print(".....\n....\n...\n..\n.")
+```
+]
+]
+---
+
+class: center,inverse
+
+## 架構
+
+.pull-left2[
+### 基本資料
+
+
+### 數學
+
+
+### 偽互動
+
+
+### **偽爬蟲**
+
+]
+
+.pull-right2[
+.text-alignl[
+接著我們打印出使用者蹉跎過的光陰。
+
+並告訴使用者我們已透過其輸入的ig掌握其個資
+
+但資料其實是上面使用者自己輸入的
+
+
+```{}
+print(f"你的名字是{userInput1}，你虛度的歲月是{userInput2}年\n啊是一輩子呢")
+print("哈哈")
+print("這個驚喜又快又精準吧")
+print("你的個資我已經從你的ig掌握啦")
+```
+]
+]
+--
+```{r, echo=FALSE, out.width="30%"}
+knitr::include_graphics("libs/sheep.gif")
+```
+
+
+---
+
+class:inverse,center
+# 心得
+.pull-right3[
+.text-alignl[
+<br>
+## 楊：這是一趟自我探索的旅程...
+<br>
+
+## 董：Less is More
+]
+]
+```{r include=FALSE}
+pagedown::chrome_print("ppp.html")
+```
+

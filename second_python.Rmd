@@ -1,0 +1,208 @@
+---
+title: "Python Variables"
+author: "董宸賓"
+date: "2023-08-19"
+description: |
+  這個章節介紹python的數種data type ,
+output:
+  distill::distill_article: 
+   toc: true
+   toc_depth: 4
+   toc_float: true
+   self_contained: false
+   pandoc_args: "--lua-filter=color-text.lua"
+---
+```{cat, engine.opts = list(file = "color-text.lua")}
+Span = function(el)
+  color = el.attributes['color']
+  -- if no color attribute, return unchange
+  if color == nil then return el end
+  
+  -- transform to <span style="color: red;"></span>
+  if FORMAT:match 'html' then
+    -- remove color attributes
+    el.attributes['color'] = nil
+    -- use style attribute instead
+    el.attributes['style'] = 'color: ' .. color .. ';'
+    -- return full span element
+    return el
+  elseif FORMAT:match 'latex' then
+    -- remove color attributes
+    el.attributes['color'] = nil
+    -- encapsulate in latex code
+    table.insert(
+      el.content, 1,
+      pandoc.RawInline('latex', '\\textcolor{'..color..'}{')
+    )
+    table.insert(
+      el.content,
+      pandoc.RawInline('latex', '}')
+    )
+    -- returns only span content
+    return el.content
+  else
+    -- for other format return unchanged
+    return el
+  end
+end
+```
+## Data Types
+
+### 種類
+
+- Text Type     :	str
+
+- Numeric Types :	int, float, complex
+
+- Sequence Types:	list, tuple, range
+
+- Mapping Type  :	dict
+
+- Set Types     :	set, frozenset
+
+- Boolean Type  :	bool
+
+- Binary Types  :	bytes, bytearray, memoryview
+
+- None Type     :	NoneType
+
+### 如何判別型別
+
+```{python}
+x = 5
+print(type(x))
+```
+
+### python並不是嚴格型別，不需要每次都宣告
+
+```{python}
+x = 5
+y = "John"
+print(x)
+print(y)
+```
+
+甚至，你還可以自動變形
+
+```{python}
+x = 4       # x is of type int
+x = "Sally" # x is now of type str
+print(x)
+```
+
+當然，你也可以指定變數的型別
+
+```{python}
+x = str(3)    # x will be '3'
+y = int(3)    # y will be 3
+z = float(3)  # z will be 3.0
+```
+
+## 變數的規則
+
+-   必須由字母開頭或底線
+
+-   不能以數字開頭
+
+-   變數的名稱只能含有字母、數字、底線
+
+-   不能含有[python keyword](https://www.w3schools.com/python/python_ref_keywords.asp)
+
+## 指定數個變數
+
+1.指定數個變數
+
+```{python}
+x, y, z = "Orange", "Banana", "Cherry"
+print(x)
+print(y)
+print(z)
+```
+
+2.多個數指定一個變數
+
+```{python}
+x = y = z = "Orange"
+print(x)
+print(y)
+print(z)
+```
+
+3.指定一個集合
+
+```{python}
+fruits = ["apple", "banana", "cherry"]
+x, y, z = fruits
+print(x)
+print(y)
+print(z)
+```
+
+## Print
+
+1.  最基本的print
+
+```{python}
+x = "Python is awesome"
+print(x)
+```
+
+2.  你可以一次印好幾個變數，但記得用逗號格開，或是用＋號
+
+```{python}
+x = "Python"
+y = "is"
+z = "awesome"
+print(x, y, z)
+print(x + y + z)#這個方法不會將他們彼此隔開
+```
+
+必須注意的是，如果你想要一次print兩種變數時，請用,而不是用+號
+
+## Global variable
+
+如果你在一個function之外指定一個變數，他們就叫做global variable，意思是你的所有環境皆通用
+
+```{python}
+x = "awesome"
+
+def myfunc(): #定義myfunc()
+  x = "fantastic"
+  print("Python is " + x)
+
+myfunc()
+
+#他不是function之內，所以用的是global variable
+print("Python is " + x)
+
+```
+
+你也可以在fun()裡面指定global variable
+
+```{python}
+def myfunc():
+  global x
+  x = "fantastic"
+  print("Python is " + x)
+
+myfunc()
+print("Python is " + x)
+```
+
+```{r}
+#| code-line-numbers: "|1|"
+#| echo: fenced
+x <- 10
+y <- x * 2
+```
+
+### <b>
+x <- 10
+y <- x * 2
+### </b>
+
+## 參考資料
+[w3學校](https://www.w3schools.com/python/python_variables.asp)
+
+
+

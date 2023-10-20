@@ -1,0 +1,77 @@
+.inverse {
+  background-color: #272822;
+  color: white;
+  font-family: fantasy;
+}
+
+.inverse2 {
+  background-color: #272822;
+  color: white;
+  font-family: fantasy;
+}
+
+
+.body {background-color: #92a8d1;}
+
+.pull-left {
+  float: left;
+  width: 47%;
+}
+
+.pull-left2 {
+  float: left;
+  width: 20%;
+}
+
+.pull-right {
+  float: right;
+  width: 47%;
+}
+
+.pull-right2 {
+  float: right;
+  width: 75%;
+}
+
+.pull-right3 {
+  float: right;
+  width: 90%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.remark-code {
+  font-size: 15px;
+  overflow-y: hidden;
+}
+
+.text-alignl {
+  text-align: left;
+}
+
+.text-alignr{
+  text-align: right;
+}
+.red{
+  color: red;
+}
+.b{
+  color: #272822;
+}
+  
+strong{
+  color: red;
+}
+
+a{
+  color: red;
+  text-decoration-color: transparent;
+}
+
+
+
+.lri p{
+  font-size: 25px;
+}
