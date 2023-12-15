@@ -1,0 +1,3 @@
+China=120
+India=100
+Japan=80
