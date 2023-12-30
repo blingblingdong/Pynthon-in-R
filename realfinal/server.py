@@ -101,8 +101,8 @@ while True:
       if speed == 6:
         pygame.mixer.init()
         for i, paragraph in enumerate(story_dict[answer1]):
-          play_and_print(f"{paragraph}{i}.mp3", paragraph)
-          os.remove(f"{paragraph}{i}.mp3")
+          play_and_print(f"mp3/{paragraph}{i}.mp3", paragraph)
+          os.remove(f"mp3/{paragraph}{i}.mp3")
       elif speed == 7:
         for i in story_dict[answer1]:
           print(i)
@@ -143,7 +143,7 @@ while True:
               story_name = input("請輸入故事名: ")
               if story_name in story_dict:
                   for i, paragraph in enumerate(story_dict[story_name]):
-                      text_to_speech(paragraph, f"{story_name}{i}.mp3")
+                      text_to_speech(paragraph, f"mp3/{story_name}{i}.mp3")
               else:
                   print("故事名稱不存在。")
       
