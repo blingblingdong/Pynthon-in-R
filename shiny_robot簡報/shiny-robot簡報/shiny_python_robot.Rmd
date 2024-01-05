@@ -402,7 +402,7 @@ layout: false
 
 --
 
-點擊進入[**Web app**](https://lsysocute.shinyapps.io/shinyrobot/)，[**Github**](https://github.com/blingblingdong/python_in_shiny)，[**本簡報**](https://rpubs.com/lsysocute/shiny-robot)
+點擊進入[**Web app**](https://lsysocute.shinyapps.io/shinyrobot/)，[**Github**](https://github.com/blingblingdong/python_in_shiny)，[**本簡報**](https://xaringan.lsyverycute.com)
 
 --
 
