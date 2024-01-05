@@ -1,0 +1,7 @@
+```{python}
+with open('cartoon_fire_dance_ascii_art.txt', 'r') as file:
+    ascii_art = file.read()
+
+print(ascii_art)
+```
+
